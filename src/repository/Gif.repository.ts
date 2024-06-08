@@ -12,7 +12,21 @@ export class GifRepository {
   ) {}
 
   async salvarGif(gif: any) {
-    console.log(gif)
     return this.gifModel.create(gif);
+  }
+
+  async getRandomElement() {
+    const count = await this.gifModel.countDocuments().exec();
+    const random = Math.floor(Math.random() * count);
+    return this.gifModel
+      .findOne({ sorteado: false }, { nome: 0, __v: 0, sorteado: 0 })
+      .skip(random)
+      .exec();
+  }
+
+  async alterarSorteado(_id: any) {
+    return this.gifModel
+      .updateOne({ _id: _id }, { $set: { sorteado: true } })
+      .exec();
   }
 }

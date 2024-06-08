@@ -13,5 +13,6 @@ import { GifRepository } from '../repository/Gif.repository';
   ],
   controllers: [GifController],
   providers: [GifService, GifRepository],
+  exports: [GifRepository],
 })
 export class GifModule {}
