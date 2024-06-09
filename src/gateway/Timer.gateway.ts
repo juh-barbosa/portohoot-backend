@@ -4,15 +4,15 @@ import {
   SubscribeMessage,
   OnGatewayConnection,
   MessageBody,
-  ConnectedSocket,
 } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
 import { TimerService } from '../service/Timer.service';
 
 @WebSocketGateway({
   cors: {
-    origin: '*',
+    origin: process.env.CORS_ORIGIN || '*',
     methods: ['GET', 'POST'],
+    credentials: true,
   },
 })
 export class TimerGateway implements OnGatewayConnection {
