@@ -14,10 +14,7 @@ export class GifController {
 
   @Post()
   @UseInterceptors(FileInterceptor('file'))
-  async create(
-    @Body() createGifDto: any,
-    @UploadedFile() file: Express.Multer.File,
-  ) {
+  async create(@Body() createGifDto: any, @UploadedFile() file: any) {
     return this.gifService.salvarGif(file.buffer, createGifDto);
   }
 }
