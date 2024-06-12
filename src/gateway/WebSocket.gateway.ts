@@ -31,8 +31,11 @@ export class WebSocket implements OnGatewayConnection {
     const { duration } = data.data;
 
     this.timerService.startTimer(duration, (remainingTime) => {
-      console.log(remainingTime);
       this.server.emit('timer-update', remainingTime);
     });
+  }
+
+  emitRelease(): void {
+    this.server.emit('release');
   }
 }

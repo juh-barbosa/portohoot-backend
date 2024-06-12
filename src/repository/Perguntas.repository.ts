@@ -15,4 +15,29 @@ export class PerguntasRepository {
   async salvarPergunta(pergunta: IPerguntas) {
     return this.perguntasModel.create(pergunta);
   }
+
+  async getPergunta() {
+    return this.perguntasModel.findOne(
+      { status: 1 },
+      { __v: 0, status: 0 },
+    );
+  }
+
+  async correta(_id) {
+    return this.perguntasModel.findOne(
+      { _id: _id },
+      { pergunta: 0, respostas: 0, _id: 0, __v: 0, status: 0 },
+    );
+  }
+
+  async alterarStatus(_id, status) {
+    return this.perguntasModel.updateOne({ _id: _id }, { status: status });
+  }
+
+  async liberarPergunta() {
+    return this.perguntasModel.updateOne(
+      { status: 0 },
+      { status: 1 }
+    );
+  }
 }

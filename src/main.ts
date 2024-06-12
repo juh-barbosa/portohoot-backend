@@ -12,7 +12,7 @@ async function bootstrap() {
     res.setHeader('Access-Control-Allow-Credentials', true);
     res.setHeader(
       'Access-Control-Allow-Origin',
-      process.env.CORS_ORIGIN || '*',
+      '*' || process.env.CORS_ORIGIN,
     );
     res.setHeader(
       'Access-Control-Allow-Methods',

@@ -18,5 +18,6 @@ import { GifModelName, GifSchema } from '../schema/Gif.schema';
   ],
   controllers: [EquipeController],
   providers: [EquipeService, EquipeRepository, GifRepository],
+  exports: [EquipeRepository],
 })
 export class EquipeModule {}

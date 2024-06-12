@@ -17,4 +17,8 @@ export class EquipeService {
 
     return await this.repository.salvarEquipe(equipe);
   }
+
+  async getPodium() {
+    return await this.repository.getPodium();
+  }
 }
