@@ -19,7 +19,6 @@ export class PerguntasService {
   }
 
   async responder(_id, timer: any, equipe, equipe_resposta) {
-
     const pontuacao = await this.equipeRepository.getPontuacao(equipe);
     const resposta: any = await this.repository.correta(_id);
 
@@ -35,7 +34,7 @@ export class PerguntasService {
     return this.repository.alterarStatus(id, status);
   }
 
-  async liberarPergunta(){
+  async liberarPergunta() {
     return this.repository.liberarPergunta();
   }
 }

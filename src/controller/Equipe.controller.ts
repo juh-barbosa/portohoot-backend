@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { EquipeService } from '../service/Equipe.service';
 import { IEquipe } from '../interface/Participantes.interface';
 

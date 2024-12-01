@@ -17,10 +17,7 @@ export class PerguntasRepository {
   }
 
   async getPergunta() {
-    return this.perguntasModel.findOne(
-      { status: 1 },
-      { __v: 0, status: 0 },
-    );
+    return this.perguntasModel.findOne({ status: 1 }, { __v: 0, status: 0 });
   }
 
   async correta(_id) {
@@ -35,9 +32,6 @@ export class PerguntasRepository {
   }
 
   async liberarPergunta() {
-    return this.perguntasModel.updateOne(
-      { status: 0 },
-      { status: 1 }
-    );
+    return this.perguntasModel.updateOne({ status: 0 }, { status: 1 });
   }
 }
