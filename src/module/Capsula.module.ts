@@ -1,7 +1,12 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ScheduleModule } from '@nestjs/schedule';
-import { CapsulaModelName, CapsulaSchema } from '../schema/Capsula.schema';
+import {
+  CapsulaModelName,
+  CapsulaModelNameBackup,
+  CapsulaSchema,
+  CapsulaSchemaBackup,
+} from '../schema/Capsula.schema';
 import { CapsulaController } from '../controller/Capsula.controller';
 import { CapsulaService } from '../service/Capsula.service';
 import { CapsulaRepository } from '../repository/Capsula.repository';
@@ -10,6 +15,7 @@ import { CapsulaRepository } from '../repository/Capsula.repository';
   imports: [
     MongooseModule.forFeature([
       { name: CapsulaModelName, schema: CapsulaSchema },
+      { name: CapsulaModelNameBackup, schema: CapsulaSchemaBackup },
     ]),
     ScheduleModule.forRoot(),
   ],
