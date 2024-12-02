@@ -5,6 +5,7 @@ export const CapsulaSchema = new Schema<CapsulaModel>({
   email: String,
   mensagem: { type: String, required: true },
   iv: { type: String, required: true },
+  senha: String,
 });
 
 export const CapsulaSchemaBackup = new Schema<CapsulaModelBackup>({

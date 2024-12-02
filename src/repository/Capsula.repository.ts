@@ -62,7 +62,7 @@ export class CapsulaRepository {
   async validateEmail(email): Promise<any> {
     return this.capsulaModel.find(
       { email: email },
-      { mensagem: 0, __v: 0, iv: 0, email: 0 },
+      { __v: 0, iv: 0, email: 0, mensagem: 0 },
     );
   }
 }
