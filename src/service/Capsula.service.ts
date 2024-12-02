@@ -91,10 +91,9 @@ export class CapsulaService {
     if (info.length === 0) {
       return {
         message: `
-          <p>Olá! Percebemos que não encontramos uma mensagem sua para guardar nesta cápsula do tempo. Mas não tem problema, estamos aqui para deixar algumas palavras em seu nome. 💌</p>
+          <p>Olá! Percebemos que não encontramos uma mensagem sua guardada nesta cápsula do tempo. Mas não tem problema, estamos aqui para deixar algumas palavras em seu nome. 💌</p>
           <p>Desejo que este final de ano seja cheio de paz, alegria e momentos especiais com quem você ama. Que o próximo ano traga saúde, felicidade e muitas conquistas para sua vida.</p>
-          <p>Com carinho,</p>
-          <p><strong>Comissão 2024</strong></p>
+          <p>Com carinho,<strong> Comissão 2024</strong></p>
         `,
       };
     } else if (info.length > 0) {
