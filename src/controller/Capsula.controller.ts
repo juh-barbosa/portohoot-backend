@@ -17,7 +17,7 @@ export class CapsulaController {
 
   @Put('email/validate')
   async validateEmail(@Body() body: any) {
-    return await this.service.validateEmail(body.email, body.password);
+    return await this.service.validateEmail(body.email, body.senha);
   }
 
   @Put('')

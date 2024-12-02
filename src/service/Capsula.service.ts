@@ -89,12 +89,19 @@ export class CapsulaService {
   async validateEmail(email, password) {
     const info = await this.repository.validateEmail(email);
     if (info.length === 0) {
-      return { _id: false };
+      return {
+        message: `
+          <p>Olá! Percebemos que não encontramos uma mensagem sua para guardar nesta cápsula do tempo. Mas não tem problema, estamos aqui para deixar algumas palavras em seu nome. 💌</p>
+          <p>Desejo que este final de ano seja cheio de paz, alegria e momentos especiais com quem você ama. Que o próximo ano traga saúde, felicidade e muitas conquistas para sua vida.</p>
+          <p>Com carinho,</p>
+          <p><strong>Comissão 2024</strong></p>
+        `,
+      };
     } else if (info.length > 0) {
-      if (info[0]?.password === password) {
-        return info['_id'];
-      } else if (info[0]?.password !== password) {
-        return { _id: false };
+      if (info[0]['senha'] == password) {
+        return this.decrypt(info[0]._id);
+      } else if (info[0]?.senha !== password) {
+        return { message: 'Verifique seu email ou senha' };
       }
     }
   }
